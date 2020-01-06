@@ -4,6 +4,7 @@
 namespace player_protocol {
     enum class MessageType : std::uint8_t {
         CHANGED_MEDIUM,
+        CHANGED_PLAYER_STATE,
         CHANGED_TIME,
         CHANGED_VOLUME,
 

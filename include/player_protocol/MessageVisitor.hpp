@@ -5,6 +5,7 @@ namespace player_protocol {
     namespace changed {
         class MediumChangedMessage;
         class TimeChangedMessage;
+        class PlayerStateChangedMessage;
         class VolumeChangedMessage;
     }
     namespace request {
@@ -27,6 +28,7 @@ namespace player_protocol {
         virtual ~MessageVisitor();
         virtual void handleMessage(const changed::MediumChangedMessage& message) = 0;
         virtual void handleMessage(const changed::TimeChangedMessage& message) = 0;
+        virtual void handleMessage(const changed::PlayerStateChangedMessage& message) = 0;
         virtual void handleMessage(const changed::VolumeChangedMessage& message) = 0;
 
         virtual void handleMessage(const request::ChangeMediumRequest& message) = 0;
@@ -57,6 +59,7 @@ namespace player_protocol {
     class MessageServerVisitor : public MessageVisitor {
     public:
         void handleMessage(const changed::MediumChangedMessage& message) final;
+        void handleMessage(const changed::PlayerStateChangedMessage& message) final;
         void handleMessage(const changed::TimeChangedMessage& message) final;
         void handleMessage(const changed::VolumeChangedMessage& message) final;
         void handleMessage(const response::ErrorResponse& message) final;

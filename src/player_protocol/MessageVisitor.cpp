@@ -1,7 +1,8 @@
 #include "MessageVisitor.hpp"
 
 #include <player_protocol/changed/MediumChangedMessage.hpp>
-#include <player_protocol/changed//TimeChangedMessage.hpp>
+#include <player_protocol/changed/PlayerStateChangedMessage.hpp>
+#include <player_protocol/changed/TimeChangedMessage.hpp>
 #include <player_protocol/changed/VolumeChangedMessage.hpp>
 
 #include <player_protocol/request/ChangeMediumRequest.hpp>
@@ -51,6 +52,10 @@ namespace player_protocol {
 
 
     void MessageServerVisitor::handleMessage(const changed::MediumChangedMessage &message) {
+        handleInvalidMessage(message);
+    }
+
+    void MessageServerVisitor::handleMessage(const changed::PlayerStateChangedMessage &message) {
         handleInvalidMessage(message);
     }
 

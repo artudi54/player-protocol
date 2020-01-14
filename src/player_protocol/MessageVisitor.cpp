@@ -5,6 +5,7 @@
 #include <player_protocol/changed/TimeChangedMessage.hpp>
 #include <player_protocol/changed/VolumeChangedMessage.hpp>
 
+#include <player_protocol/request/ChangeEqualizerParametersRequest.hpp>
 #include <player_protocol/request/ChangeMediumRequest.hpp>
 #include <player_protocol/request/ChangeVolumeRequest.hpp>
 #include <player_protocol/request/PauseRequest.hpp>
@@ -20,7 +21,9 @@
 namespace player_protocol {
     MessageVisitor::~MessageVisitor() = default;
 
-
+    void MessageClientVisitor::handleMessage(const request::ChangeEqualizerParametersRequest &message) {
+        handleInvalidMessage(message);
+    }
 
     void MessageClientVisitor::handleMessage(const request::ChangeMediumRequest &message) {
         handleInvalidMessage(message);

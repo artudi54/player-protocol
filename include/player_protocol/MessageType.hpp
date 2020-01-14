@@ -8,6 +8,7 @@ namespace player_protocol {
         CHANGED_TIME,
         CHANGED_VOLUME,
 
+        REQUEST_CHANGE_EQUALIZER_PARAMETERS,
         REQUEST_CHANGE_MEDIUM,
         REQUEST_CHANGE_VOLUME,
         REQUEST_PLAYLIST,

@@ -9,6 +9,7 @@ namespace player_protocol {
         class VolumeChangedMessage;
     }
     namespace request {
+        class ChangeEqualizerParametersRequest;
         class ChangeMediumRequest;
         class ChangeVolumeRequest;
         class PauseRequest;
@@ -31,6 +32,7 @@ namespace player_protocol {
         virtual void handleMessage(const changed::PlayerStateChangedMessage& message) = 0;
         virtual void handleMessage(const changed::VolumeChangedMessage& message) = 0;
 
+        virtual void handleMessage(const request::ChangeEqualizerParametersRequest& message) = 0;
         virtual void handleMessage(const request::ChangeMediumRequest& message) = 0;
         virtual void handleMessage(const request::ChangeVolumeRequest& message) = 0;
         virtual void handleMessage(const request::PauseRequest& message) = 0;
@@ -46,6 +48,7 @@ namespace player_protocol {
 
     class MessageClientVisitor : public MessageVisitor {
     public:
+        void handleMessage(const request::ChangeEqualizerParametersRequest& message) final;
         void handleMessage(const request::ChangeMediumRequest& message) final;
         void handleMessage(const request::ChangeVolumeRequest& message) final;
         void handleMessage(const request::PauseRequest& message) final;

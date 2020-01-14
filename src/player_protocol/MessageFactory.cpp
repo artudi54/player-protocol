@@ -1,8 +1,10 @@
 #include "MessageFactory.hpp"
-#include <player_protocol/changed/TimeChangedMessage.hpp>
 #include <player_protocol/changed/MediumChangedMessage.hpp>
+#include <player_protocol/changed/PlayerStateChangedMessage.hpp>
+#include <player_protocol/changed/TimeChangedMessage.hpp>
 #include <player_protocol/changed/VolumeChangedMessage.hpp>
 
+#include <player_protocol/request/ChangeEqualizerParametersRequest.hpp>
 #include <player_protocol/request/ChangeMediumRequest.hpp>
 #include <player_protocol/request/ChangeVolumeRequest.hpp>
 #include <player_protocol/request/PauseRequest.hpp>
@@ -20,11 +22,15 @@ namespace player_protocol {
         switch (type) {
             case MessageType::CHANGED_MEDIUM:
                 return std::make_unique<changed::MediumChangedMessage>();
+            case MessageType::CHANGED_PLAYER_STATE:
+                return std::make_unique<changed::PlayerStateChangedMessage>();
             case MessageType::CHANGED_TIME:
                 return std::make_unique<changed::TimeChangedMessage>();
             case MessageType::CHANGED_VOLUME:
                 return std::make_unique<changed::VolumeChangedMessage>();
 
+            case MessageType::REQUEST_CHANGE_EQUALIZER_PARAMETERS:
+                return std::make_unique<request::ChangeEqualizerParametersRequest>();
             case MessageType::REQUEST_CHANGE_MEDIUM:
                 return std::make_unique<request::ChangeMediumRequest>();
             case MessageType::REQUEST_CHANGE_VOLUME:

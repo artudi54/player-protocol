@@ -3,6 +3,7 @@ project(player-protocol LANGUAGES CXX)
 
 # Source code
 SET(HEADERS
+	include/player_protocol/changed/EqualizerParametersChanged.hpp
     include/player_protocol/changed/MediumChangedMessage.hpp
     include/player_protocol/changed/TimeChangedMessage.hpp
 	include/player_protocol/changed/VolumeChangedMessage.hpp
@@ -25,6 +26,7 @@ SET(HEADERS
 	include/player_protocol/MessageVisitor.hpp
 )
 set(SOURCES
+	src/player_protocol/changed/EqualizerParametersChanged.cpp
 	src/player_protocol/changed/MediumChangedMessage.cpp
 	src/player_protocol/changed/TimeChangedMessage.cpp
 	src/player_protocol/changed/VolumeChangedMessage.cpp

@@ -1,4 +1,5 @@
 #include "MessageFactory.hpp"
+#include <player_protocol/changed/EqualizerParametersChanged.hpp>
 #include <player_protocol/changed/MediumChangedMessage.hpp>
 #include <player_protocol/changed/PlayerStateChangedMessage.hpp>
 #include <player_protocol/changed/TimeChangedMessage.hpp>
@@ -21,6 +22,8 @@
 namespace player_protocol {
     std::unique_ptr<Message> MessageFactory::create(MessageType type) {
         switch (type) {
+            case MessageType::CHANGED_EQUALIZER_PARAMETERS:
+                return std::make_unique<changed::EqualizerParametersChanged>();
             case MessageType::CHANGED_MEDIUM:
                 return std::make_unique<changed::MediumChangedMessage>();
             case MessageType::CHANGED_PLAYER_STATE:

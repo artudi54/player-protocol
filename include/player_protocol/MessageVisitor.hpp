@@ -3,6 +3,7 @@
 namespace player_protocol {
     class Message;
     namespace changed {
+        class EqualizerParametersChanged;
         class MediumChangedMessage;
         class TimeChangedMessage;
         class PlayerStateChangedMessage;
@@ -28,6 +29,7 @@ namespace player_protocol {
     class MessageVisitor {
     public:
         virtual ~MessageVisitor();
+        virtual void handleMessage(const changed::EqualizerParametersChanged& message) = 0;
         virtual void handleMessage(const changed::MediumChangedMessage& message) = 0;
         virtual void handleMessage(const changed::TimeChangedMessage& message) = 0;
         virtual void handleMessage(const changed::PlayerStateChangedMessage& message) = 0;
@@ -64,6 +66,7 @@ namespace player_protocol {
 
     class MessageServerVisitor : public MessageVisitor {
     public:
+        void handleMessage(const changed::EqualizerParametersChanged& message) final;
         void handleMessage(const changed::MediumChangedMessage& message) final;
         void handleMessage(const changed::PlayerStateChangedMessage& message) final;
         void handleMessage(const changed::TimeChangedMessage& message) final;

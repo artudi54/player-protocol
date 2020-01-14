@@ -1,5 +1,6 @@
 #include "MessageVisitor.hpp"
 
+#include <player_protocol/changed/EqualizerParametersChanged.hpp>
 #include <player_protocol/changed/MediumChangedMessage.hpp>
 #include <player_protocol/changed/PlayerStateChangedMessage.hpp>
 #include <player_protocol/changed/TimeChangedMessage.hpp>
@@ -58,6 +59,11 @@ namespace player_protocol {
         handleInvalidMessage(message);
     }
 
+
+
+    void MessageServerVisitor::handleMessage(const changed::EqualizerParametersChanged &message) {
+        handleInvalidMessage(message);
+    }
 
     void MessageServerVisitor::handleMessage(const changed::MediumChangedMessage &message) {
         handleInvalidMessage(message);

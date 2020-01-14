@@ -11,6 +11,7 @@
 #include <player_protocol/request/PauseRequest.hpp>
 #include <player_protocol/request/PlaylistRequest.hpp>
 #include <player_protocol/request/PlayRequest.hpp>
+#include <player_protocol/request/ResetRequest.hpp>
 #include <player_protocol/request/SeekRequest.hpp>
 #include <player_protocol/request/StopRequest.hpp>
 
@@ -38,6 +39,10 @@ namespace player_protocol {
     }
 
     void MessageClientVisitor::handleMessage(const request::PlayRequest &message) {
+        handleInvalidMessage(message);
+    }
+
+    void MessageClientVisitor::handleMessage(const request::ResetRequest &message) {
         handleInvalidMessage(message);
     }
 

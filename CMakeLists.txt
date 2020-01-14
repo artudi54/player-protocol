@@ -47,7 +47,7 @@ set(SOURCES
 
 	src/player_protocol/MessageFactory.cpp
 	src/player_protocol/MessageFactory.hpp
-		src/player_protocol/changed/PlayerStateChangedMessage.cpp include/player_protocol/changed/PlayerStateChangedMessage.hpp include/player_protocol/PlayerState.hpp include/player_protocol/EqualizerParameters.hpp src/player_protocol/EqualizerParameters.cpp src/player_protocol/request/ChangeEqualizerParametersRequest.cpp include/player_protocol/request/ChangeEqualizerParametersRequest.hpp)
+		src/player_protocol/changed/PlayerStateChangedMessage.cpp include/player_protocol/changed/PlayerStateChangedMessage.hpp include/player_protocol/PlayerState.hpp include/player_protocol/EqualizerParameters.hpp src/player_protocol/EqualizerParameters.cpp src/player_protocol/request/ChangeEqualizerParametersRequest.cpp include/player_protocol/request/ChangeEqualizerParametersRequest.hpp src/player_protocol/request/ResetRequest.cpp include/player_protocol/request/ResetRequest.hpp)
 
 # Executable
 add_library(${PROJECT_NAME} ${HEADERS} ${SOURCES})

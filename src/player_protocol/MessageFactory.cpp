@@ -10,6 +10,7 @@
 #include <player_protocol/request/PauseRequest.hpp>
 #include <player_protocol/request/PlaylistRequest.hpp>
 #include <player_protocol/request/PlayRequest.hpp>
+#include <player_protocol/request/ResetRequest.hpp>
 #include <player_protocol/request/SeekRequest.hpp>
 #include <player_protocol/request/StopRequest.hpp>
 
@@ -41,6 +42,8 @@ namespace player_protocol {
                 return std::make_unique<request::PlaylistRequest>();
             case MessageType::REQUEST_PLAY:
                 return std::make_unique<request::PlayRequest>();
+            case MessageType::REQUEST_RESET:
+                return std::make_unique<request::ResetRequest>();
             case MessageType::REQUEST_SEEK:
                 return std::make_unique<request::SeekRequest>();
             case MessageType::REQUEST_STOP:

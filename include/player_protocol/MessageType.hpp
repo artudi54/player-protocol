@@ -14,6 +14,7 @@ namespace player_protocol {
         REQUEST_PLAYLIST,
         REQUEST_PAUSE,
         REQUEST_PLAY,
+        REQUEST_RESET,
         REQUEST_SEEK,
         REQUEST_STOP,
 

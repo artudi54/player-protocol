@@ -15,6 +15,7 @@ namespace player_protocol {
         class PauseRequest;
         class PlaylistRequest;
         class PlayRequest;
+        class ResetRequest;
         class SeekRequest;
         class StopRequest;
     }
@@ -38,6 +39,7 @@ namespace player_protocol {
         virtual void handleMessage(const request::PauseRequest& message) = 0;
         virtual void handleMessage(const request::PlaylistRequest& message) = 0;
         virtual void handleMessage(const request::PlayRequest& message) = 0;
+        virtual void handleMessage(const request::ResetRequest& message) = 0;
         virtual void handleMessage(const request::SeekRequest& message) = 0;
         virtual void handleMessage(const request::StopRequest& message) = 0;
 
@@ -54,6 +56,7 @@ namespace player_protocol {
         void handleMessage(const request::PauseRequest& message) final;
         void handleMessage(const request::PlaylistRequest& message) final;
         void handleMessage(const request::PlayRequest& message) final;
+        void handleMessage(const request::ResetRequest& message) final;
         void handleMessage(const request::SeekRequest& message) final;
         void handleMessage(const request::StopRequest& message) final;
         virtual void handleInvalidMessage(const Message& message) = 0;
